@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/csce-project-app/static/css/main.5e1fc441.css",
+    "main.js": "/csce-project-app/static/js/main.9c5b39f8.js",
+    "index.html": "/csce-project-app/index.html",
+    "main.5e1fc441.css.map": "/csce-project-app/static/css/main.5e1fc441.css.map",
+    "main.9c5b39f8.js.map": "/csce-project-app/static/js/main.9c5b39f8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5e1fc441.css",
+    "static/js/main.9c5b39f8.js"
+  ]
+}
