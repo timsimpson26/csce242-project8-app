@@ -1,0 +1,107 @@
+.sub-hero {
+  background: linear-gradient(180deg, rgba(31, 122, 58, 0.95), rgba(31, 122, 58, 0.85));
+  color: white;
+  padding: 34px 28px;
+  text-align: center;
+}
+
+.sub-hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sub-hero h1 {
+  font-size: 40px;
+  margin: 0 0 6px 0;
+}
+
+.sub-lede {
+  font-size: 16px;
+  margin-bottom: 12px;
+  opacity: 0.95;
+}
+
+.mini-nav {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.about-main {
+  padding: 32px 28px 60px;
+}
+
+.about-container {
+  display: flex;
+  gap: 28px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about-text {
+  flex: 1;
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+}
+
+.about-text h2 {
+  color: var(--brand-green);
+  font-size: 26px;
+  margin-top: 6px;
+}
+
+.about-text p,
+.about-text ul {
+  margin-bottom: 1rem;
+}
+
+.about-text ul {
+  padding-left: 20px;
+}
+
+.about-image img {
+  width: 360px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 6px solid white;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.08);
+}
+
+.team-box {
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 22px;
+  max-width: 1000px;
+  margin: 20px auto 40px;
+}
+
+.values-list {
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.value {
+  flex: 1;
+  min-width: 180px;
+}
+
+.value h3 {
+  color: var(--brand-green);
+  margin-bottom: 6px;
+}
+
+@media (max-width: 900px) {
+  .about-container,
+  .values-list {
+    flex-direction: column;
+  }
+
+  .about-image img {
+    width: 100%;
+  }
+}

@@ -1,0 +1,104 @@
+.starting-page {
+  margin: 0;
+  background: #ffffff;
+}
+
+.starting-header {
+  background: var(--brand-green);
+  padding: 30px 40px;
+  text-align: center;
+}
+
+.starting-title {
+  font-size: 48px;
+  color: white;
+  margin: 0;
+}
+
+.starting-hero {
+  position: relative;
+  min-height: 650px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  padding: 40px;
+}
+
+.starting-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.starting-text-card {
+  position: absolute;
+  left: 60px;
+  top: 80px;
+  max-width: 520px;
+  z-index: 2;
+  background: rgba(233, 233, 233, 0.95);
+  padding: 28px;
+  border-radius: 16px;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #222;
+}
+
+.starting-itinerary {
+  position: absolute;
+  right: 60px;
+  bottom: 60px;
+  width: 360px;
+  z-index: 2;
+}
+
+.starting-itinerary img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 900px) {
+  .starting-title {
+    font-size: 40px;
+  }
+
+  .starting-hero {
+    min-height: 500px;
+  }
+
+  .starting-text-card {
+    left: 30px;
+    top: 40px;
+    font-size: 18px;
+  }
+
+  .starting-itinerary {
+    width: 280px;
+    right: 30px;
+    bottom: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .starting-hero {
+    min-height: auto;
+    padding: 20px 0 60px;
+  }
+
+  .starting-text-card,
+  .starting-itinerary {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    margin: 20px auto;
+  }
+
+  .starting-text-card,
+  .starting-itinerary {
+    width: 85%;
+  }
+}
