@@ -1,18 +1,18 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./pages/home";
-import About from "./pages/about";
-import Contact from "./pages/contact";
-import Reviews from "./pages/reviews";
-import StartingJourney from "./pages/startingjourney";
-import Interlaken from "./pages/interlaken";
-import Lucerne from "./pages/lucerne";
-import Zermatt from "./pages/zermatt";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Reviews from "./pages/Reviews";
+import StartingJourney from "./pages/StartingJourney";
+import Interlaken from "./pages/Interlaken";
+import Lucerne from "./pages/Lucerne";
+import Zermatt from "./pages/Zermatt";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
