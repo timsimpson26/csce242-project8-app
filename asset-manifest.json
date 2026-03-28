@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/csce242-project8-app/static/css/main.a91caf4b.css",
+    "main.css": "/csce242-project8-app/static/css/main.c3690323.css",
     "main.js": "/csce242-project8-app/static/js/main.ff84ebff.js",
     "index.html": "/csce242-project8-app/index.html",
-    "main.a91caf4b.css.map": "/csce242-project8-app/static/css/main.a91caf4b.css.map",
+    "main.c3690323.css.map": "/csce242-project8-app/static/css/main.c3690323.css.map",
     "main.ff84ebff.js.map": "/csce242-project8-app/static/js/main.ff84ebff.js.map"
   },
   "entrypoints": [
-    "static/css/main.a91caf4b.css",
+    "static/css/main.c3690323.css",
     "static/js/main.ff84ebff.js"
   ]
 }
