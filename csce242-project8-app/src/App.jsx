@@ -5,7 +5,7 @@ import Home from "./pages/home";
 import About from "./pages/about";
 import Contact from "./pages/contact";
 import Reviews from "./pages/reviews";
-import StartingJourney from "./pages/startingJourney";
+import StartingJourney from "./pages/startingjourney";
 import Interlaken from "./pages/interlaken";
 import Lucerne from "./pages/lucerne";
 import Zermatt from "./pages/zermatt";

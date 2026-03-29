@@ -26,7 +26,7 @@ function StartingJourney() {
 
           <div className="starting-itinerary">
             <img
-              src="/images/itn.jpg"
+              src={`${process.env.PUBLIC_URL}/images/itn.jpg`}
               alt="7 Day Switzerland Itinerary"
             />
           </div>

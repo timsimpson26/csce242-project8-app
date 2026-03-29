@@ -1,3 +1,7 @@
+#page-wrap {
+  min-height: 100vh;
+}
+
 #hero {
   position: relative;
   height: 420px;
@@ -33,6 +37,12 @@
 
 #main {
   padding: 22px 28px 40px 28px;
+}
+
+#swiss-items,
+#contact-inline,
+#map-section {
+  margin-top: 28px;
 }
 
 .why-inner {
@@ -115,11 +125,13 @@
 }
 
 .learn {
+  display: inline-block;
   background: var(--accent);
   color: var(--brand-green);
   padding: 8px 14px;
   border-radius: 10px;
   font-weight: 600;
+  text-decoration: none;
 }
 
 .fact-rotator-wrap {
@@ -156,6 +168,67 @@
   margin-bottom: 48px;
 }
 
+.contact-form {
+  display: grid;
+  gap: 14px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.contact-form button {
+  width: fit-content;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--brand-green);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-success {
+  margin: 0;
+  font-weight: 600;
+  color: #1f7a3a;
+}
+
+.form-error {
+  margin: 0;
+  font-weight: 600;
+  color: #b00020;
+}
+
+.iframe-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.iframe-centered {
+  display: flex;
+  justify-content: center;
+}
+
+.iframe-wrapper iframe {
+  width: 100%;
+  height: 380px;
+  border: 0;
+  border-radius: 12px;
+}
+
+.map-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
 @media (max-width: 900px) {
   .why-content,
   .cards {
@@ -173,6 +246,11 @@
 
   .cards-grid {
     gap: 24px;
+  }
+
+  .why-left img {
+    width: 100%;
+    height: auto;
   }
 }
 

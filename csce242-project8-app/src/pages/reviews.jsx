@@ -19,7 +19,7 @@ function Reviews() {
         </header>
 
         <img
-          src="/images/traveler_experiences_banner.jpg"
+          src={`${process.env.PUBLIC_URL}/images/traveler_experiences_banner.jpg`}
           alt="Travel experiences in Switzerland"
           style={{ width: "100%", display: "block", borderRadius: "0 0 8px 8px" }}
         />

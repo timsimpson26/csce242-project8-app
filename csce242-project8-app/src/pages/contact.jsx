@@ -19,7 +19,7 @@ function Contact() {
 
         <img
           className="contact-banner"
-          src="/images/contact_banner.jpg"
+          src={`${process.env.PUBLIC_URL}/images/contact_banner.jpg`}
           alt="Swiss Mountains banner"
         />
 
@@ -40,11 +40,11 @@ function Contact() {
               </li>
             </ul>
 
-            <img
-              src="/images/swiss_flag_small.jpg"
-              alt="Swiss flag"
-              className="contact-flag"
-            />
+          <img
+            src={`${process.env.PUBLIC_URL}/images/swiss_flag_small.jpg`}
+            alt="Swiss flag"
+            className="contact-flag"
+          />
           </div>
         </main>
       </div>

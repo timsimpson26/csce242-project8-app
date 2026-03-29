@@ -9,21 +9,25 @@ function Interlaken() {
     <>
       <Header />
 
-      <div className="destination-page">
-        <header className="page-header">
-          <h1 className="page-title">Experience Interlaken</h1>
+      <main className="destination-page">
 
-          <Link className="home-bubble" to="/">
-            Home
-          </Link>
-        </header>
+        <section className="sub-hero">
+          <div className="sub-hero-inner">
+            <h1>Experience Interlaken</h1>
+            <p className="sub-lede">
+              Discover the beauty of the land between lakes.
+            </p>
 
-        <p className="intro">
-          Discover the beauty of the land between lakes.
-        </p>
+            <div className="mini-nav">
+              <Link className="home-bubble" to="/">
+                Home
+              </Link>
+            </div>
+          </div>
+        </section>
 
         <img
-          src="/images/interlaken_hero.jpg"
+          src={process.env.PUBLIC_URL + "/images/interlaken_hero.jpg"}
           alt="Interlaken lake and mountains"
           className="hero"
         />
@@ -50,7 +54,8 @@ function Interlaken() {
             </p>
           </div>
         </div>
-      </div>
+
+      </main>
 
       <Footer />
     </>

@@ -36,7 +36,7 @@ function About() {
 
             <div className="about-image">
               <img
-                src="/images/swiss_story_panorama.jpg"
+                src={`${process.env.PUBLIC_URL}/images/swiss_story_panorama.jpg`}
                 alt="Swiss scenic panorama"
               />
             </div>

@@ -9,21 +9,25 @@ function Lucerne() {
     <>
       <Header />
 
-      <div className="destination-page">
-        <header className="page-header">
-          <h1 className="page-title">Visit Lucerne</h1>
+      <main className="destination-page">
 
-          <Link className="home-bubble" to="/">
-            Home
-          </Link>
-        </header>
+        <section className="sub-hero">
+          <div className="sub-hero-inner">
+            <h1>Visit Lucerne</h1>
+            <p className="sub-lede">
+              Come and see the marvelous lake town known for its charming medieval architecture and stunning mountain backdrop.
+            </p>
 
-        <p className="intro">
-          Come and see the marvelous lake town known for its charming medieval architecture and stunning mountain backdrop.
-        </p>
+            <div className="mini-nav">
+              <Link className="home-bubble" to="/">
+                Home
+              </Link>
+            </div>
+          </div>
+        </section>
 
         <img
-          src="/images/lucerne_hero.jpg"
+          src={process.env.PUBLIC_URL + "/images/lucerne_hero.jpg"}
           alt="Lucerne Chapel Bridge and lake"
           className="hero"
         />
@@ -50,7 +54,8 @@ function Lucerne() {
             </p>
           </div>
         </div>
-      </div>
+
+      </main>
 
       <Footer />
     </>

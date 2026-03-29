@@ -9,21 +9,24 @@ function Zermatt() {
     <>
       <Header />
 
-      <div className="destination-page">
-        <header className="page-header">
-          <h1 className="page-title">Explore Zermatt</h1>
+      <main className="destination-page">
+        <section className="sub-hero">
+          <div className="sub-hero-inner">
+            <h1>Explore Zermatt</h1>
+            <p className="sub-lede">
+              Zermatt is a charming, car-free alpine village at the foot of the iconic Matterhorn, renowned for its world-class skiing and mountaineering.
+            </p>
 
-          <Link className="home-bubble" to="/">
-            Home
-          </Link>
-        </header>
-
-        <p className="intro">
-          Zermatt is a charming, car-free alpine village at the foot of the iconic Matterhorn, renowned for its world-class skiing and mountaineering.
-        </p>
+            <div className="mini-nav">
+              <Link className="home-bubble" to="/">
+                Home
+              </Link>
+            </div>
+          </div>
+        </section>
 
         <img
-          src="/images/zermatt_hero.jpg"
+          src={process.env.PUBLIC_URL + "/images/zermatt_hero.jpg"}
           alt="Zermatt village and Matterhorn"
           className="hero"
         />
@@ -50,7 +53,7 @@ function Zermatt() {
             </p>
           </div>
         </div>
-      </div>
+      </main>
 
       <Footer />
     </>
