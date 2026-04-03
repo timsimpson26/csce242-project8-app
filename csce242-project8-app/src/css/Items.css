@@ -1,0 +1,29 @@
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.items-status {
+  text-align: center;
+  font-size: 16px;
+  color: #1f7a3a;
+  padding: 40px 0;
+}
+
+.items-status.error {
+  color: #b00020;
+}
+
+@media (max-width: 900px) {
+  .items-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .items-grid {
+    grid-template-columns: 1fr;
+  }
+}
