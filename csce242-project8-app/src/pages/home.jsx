@@ -151,7 +151,6 @@ function Home() {
             <Items />
           </section>
 
-          {/* ── Travel Tips ── */}
           <section id="travel-tips">
             <h2 className="dest-title">Travel Tips</h2>
             <div className="tips-grid">
@@ -178,7 +177,6 @@ function Home() {
             </div>
           </section>
 
-          {/* ── Testimonials ── */}
           <section id="testimonials">
             <h2 className="dest-title">What Travelers Say</h2>
             <div className="testimonials-grid">
@@ -197,7 +195,6 @@ function Home() {
             </div>
           </section>
 
-          {/* ── Contact ── */}
           <section id="contact-inline">
             <h2 className="dest-title">Contact Us</h2>
             <form className="contact-form" onSubmit={handleSubmit}>
@@ -231,7 +228,6 @@ function Home() {
             </form>
           </section>
 
-          {/* ── Map ── */}
           <section id="map-section">
             <h2 className="dest-title">Map — Matterhorn / Zermatt</h2>
             <div className="iframe-wrapper iframe-centered">

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Item from "./Item";
 import ItemModal from "./ItemModal";
+import AddItemForm from "./addItemForm";
 import "../css/Items.css";
 
 const Items = () => {
@@ -23,6 +24,10 @@ const Items = () => {
       });
   }, []);
 
+  const handleItemAdded = (newItem) => {
+    setItems((prev) => [...prev, newItem]);
+  };
+
   if (loading) return <p className="items-status">Loading Swiss items...</p>;
   if (error) return <p className="items-status error">{error}</p>;
 
@@ -33,6 +38,8 @@ const Items = () => {
           <Item key={item._id} item={item} onSelect={setSelectedItem} />
         ))}
       </div>
+
+      <AddItemForm onItemAdded={handleItemAdded} />
 
       {selectedItem && (
         <ItemModal item={selectedItem} onClose={() => setSelectedItem(null)} />

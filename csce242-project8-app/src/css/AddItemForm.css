@@ -1,0 +1,101 @@
+.add-form-wrap {
+  background: linear-gradient(135deg, rgba(31, 122, 58, 0.06), rgba(31, 122, 58, 0.02));
+  border: 1px solid rgba(31, 122, 58, 0.15);
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+.add-form-title {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  color: #1f7a3a;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.add-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.add-form-field label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1f7a3a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.add-form-field input,
+.add-form-field select,
+.add-form-field textarea {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 14px;
+  transition: border-color 0.18s;
+  background: white;
+}
+
+.add-form-field input:focus,
+.add-form-field select:focus,
+.add-form-field textarea:focus {
+  outline: none;
+  border-color: #1f7a3a;
+  box-shadow: 0 0 0 3px rgba(31, 122, 58, 0.1);
+}
+
+.add-form-field textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.add-form-error {
+  font-size: 12px;
+  color: #b00020;
+  margin: 0;
+  font-weight: 600;
+}
+
+.add-form-success {
+  font-size: 14px;
+  color: #1f7a3a;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  padding: 12px;
+  background: #e8f5ed;
+  border-radius: 8px;
+}
+
+.add-form-btn {
+  background: #1f7a3a;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.add-form-btn:hover {
+  background: #165e2d;
+}
+
+@media (max-width: 520px) {
+  .add-form-wrap {
+    padding: 20px;
+  }
+}
