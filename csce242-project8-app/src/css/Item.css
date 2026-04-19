@@ -71,3 +71,13 @@
   background: #165e2d;
 }
 
+.items-delete-success {
+  background-color: #eafaf1;
+  color: #27ae60;
+  border: 1px solid #a9dfbf;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+}

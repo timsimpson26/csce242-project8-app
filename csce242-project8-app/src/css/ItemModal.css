@@ -1,98 +1,184 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 2000;
+  background: rgba(0, 0, 0, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  z-index: 1000;
 }
 
 .modal-box {
-  background: white;
-  border-radius: 16px;
-  padding: 36px;
-  max-width: 500px;
-  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px 28px 24px;
+  max-width: 480px;
+  width: 90%;
   position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-  animation: modal-in 0.25s ease;
-}
-
-@keyframes modal-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .modal-close {
   position: absolute;
-  top: 16px;
+  top: 14px;
   right: 16px;
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 1.2rem;
   cursor: pointer;
   color: #888;
-  transition: color 0.18s;
+  line-height: 1;
 }
-
-.modal-close:hover {
-  color: #1f7a3a;
-}
+.modal-close:hover { color: #333; }
 
 .modal-category {
-  display: inline-block;
-  background: #e8f5ed;
-  color: #1f7a3a;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 20px;
-  margin-bottom: 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.08em;
+  color: #2a6496;
+  margin-bottom: 6px;
 }
 
 .modal-title {
-  font-size: 26px;
-  color: #111;
-  margin-bottom: 14px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: #1a1a1a;
 }
 
 .modal-description {
-  font-size: 15px;
+  font-size: 0.95rem;
   color: #555;
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .modal-price {
-  font-size: 28px;
+  font-size: 1.3rem;
   font-weight: 700;
-  color: #1f7a3a;
-  margin-bottom: 24px;
+  color: #2a6496;
+  margin-bottom: 6px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .modal-cta {
-  width: 100%;
-  padding: 12px;
-  background: #1f7a3a;
+  background: #f0f0f0;
+  color: #333;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+.modal-cta:hover { background: #e0e0e0; }
+
+.modal-btn-edit {
+  background-color: #2a6496;
   color: white;
   border: none;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background 0.18s;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+.modal-btn-edit:hover { background-color: #1e4f78; }
+
+.modal-btn-delete {
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+.modal-btn-delete:hover { background-color: #a93226; }
+
+.modal-btn-cancel {
+  background-color: transparent;
+  color: #666;
+  border: 1px solid #ccc;
+  padding: 9px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+.modal-btn-cancel:hover { background-color: #f5f5f5; }
+
+.modal-delete-confirm {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #c0392b;
+  font-weight: 500;
 }
 
-.modal-cta:hover {
-  background: #165e2d;
+.modal-edit-form {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.modal-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #444;
+}
+
+.modal-field input,
+.modal-field select,
+.modal-field textarea {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.modal-field input:focus,
+.modal-field select:focus,
+.modal-field textarea:focus {
+  outline: none;
+  border-color: #2a6496;
+  box-shadow: 0 0 0 2px rgba(42, 100, 150, 0.15);
+}
+
+.modal-field textarea {
+  resize: vertical;
+}
+
+.modal-success {
+  color: #27ae60;
+  font-size: 0.9rem;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.modal-error {
+  color: #c0392b;
+  font-size: 0.85rem;
+  margin-top: 4px;
 }
