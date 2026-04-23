@@ -12,6 +12,8 @@ const ItemModal = ({ item, onClose, onItemUpdated, onItemDeleted }) => {
     price: item.price.toString(),
     description: item.description,
   });
+  const [imageFile, setImageFile] = useState(null);
+  const [imagePreview, setImagePreview] = useState(item.image || "");
   const [errors, setErrors] = useState({});
   const [successMsg, setSuccessMsg] = useState("");
   const [serverError, setServerError] = useState("");
@@ -37,6 +39,14 @@ const ItemModal = ({ item, onClose, onItemUpdated, onItemDeleted }) => {
     setServerError("");
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImageFile(file);
+      setImagePreview(URL.createObjectURL(file));
+    }
+  };
+
   const handleEditSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validate();
@@ -45,11 +55,19 @@ const ItemModal = ({ item, onClose, onItemUpdated, onItemDeleted }) => {
       return;
     }
 
+    const formData = new FormData();
+    formData.append("title", form.title);
+    formData.append("category", form.category);
+    formData.append("price", parseFloat(form.price));
+    formData.append("description", form.description);
+    if (imageFile) {
+      formData.append("image", imageFile);
+    } else {
+      formData.append("image", item.image || "");
+    }
+
     axios
-      .put(`https://swiss-server-yvo6.onrender.com/api/items/${item._id}`, {
-        ...form,
-        price: parseFloat(form.price),
-      })
+      .put(`https://swiss-server-yvo6.onrender.com/api/items/${item._id}`, formData)
       .then((res) => {
         setSuccessMsg("Item updated successfully!");
         setIsEditing(false);
@@ -83,6 +101,13 @@ const ItemModal = ({ item, onClose, onItemUpdated, onItemDeleted }) => {
 
         {!isEditing ? (
           <>
+            {imagePreview && (
+              <img
+                src={imagePreview}
+                alt={item.title}
+                style={{ width: "100%", borderRadius: "8px", marginBottom: "12px", maxHeight: "250px", objectFit: "cover" }}
+              />
+            )}
             <div className="modal-category">{item.category}</div>
             <h2 className="modal-title">{item.title}</h2>
             <p className="modal-description">{item.description}</p>
@@ -117,12 +142,7 @@ const ItemModal = ({ item, onClose, onItemUpdated, onItemDeleted }) => {
             <form className="modal-edit-form" onSubmit={handleEditSubmit}>
               <div className="modal-field">
                 <label>Title</label>
-                <input
-                  type="text"
-                  name="title"
-                  value={form.title}
-                  onChange={handleChange}
-                />
+                <input type="text" name="title" value={form.title} onChange={handleChange} />
                 {errors.title && <p className="modal-error">{errors.title}</p>}
               </div>
 
@@ -139,26 +159,25 @@ const ItemModal = ({ item, onClose, onItemUpdated, onItemDeleted }) => {
 
               <div className="modal-field">
                 <label>Price ($)</label>
-                <input
-                  type="number"
-                  name="price"
-                  value={form.price}
-                  onChange={handleChange}
-                  min="0.01"
-                  step="0.01"
-                />
+                <input type="number" name="price" value={form.price}
+                  onChange={handleChange} min="0.01" step="0.01" />
                 {errors.price && <p className="modal-error">{errors.price}</p>}
               </div>
 
               <div className="modal-field">
                 <label>Description</label>
-                <textarea
-                  name="description"
-                  value={form.description}
-                  onChange={handleChange}
-                  rows="3"
-                />
+                <textarea name="description" value={form.description}
+                  onChange={handleChange} rows="3" />
                 {errors.description && <p className="modal-error">{errors.description}</p>}
+              </div>
+
+              <div className="modal-field">
+                <label>Picture</label>
+                {imagePreview && (
+                  <img src={imagePreview} alt="Preview"
+                    style={{ width: "100%", borderRadius: "8px", marginBottom: "8px", maxHeight: "200px", objectFit: "cover" }} />
+                )}
+                <input type="file" accept="image/*" onChange={handleImageChange} />
               </div>
 
               {serverError && <p className="modal-error">{serverError}</p>}

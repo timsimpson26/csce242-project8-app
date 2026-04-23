@@ -6,11 +6,10 @@ const categories = ["Poster", "Food", "Print", "Map", "Souvenir", "Guide", "Book
 
 const AddItemForm = ({ onItemAdded }) => {
   const [form, setForm] = useState({
-    title: "",
-    category: "",
-    price: "",
-    description: "",
+    title: "", category: "", price: "", description: "",
   });
+  const [imageFile, setImageFile] = useState(null);
+  const [imagePreview, setImagePreview] = useState("");
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState("");
   const [serverError, setServerError] = useState("");
@@ -35,6 +34,14 @@ const AddItemForm = ({ onItemAdded }) => {
     setServerError("");
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImageFile(file);
+      setImagePreview(URL.createObjectURL(file));
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validate();
@@ -43,38 +50,37 @@ const AddItemForm = ({ onItemAdded }) => {
       return;
     }
 
+    const formData = new FormData();
+    formData.append("title", form.title);
+    formData.append("category", form.category);
+    formData.append("price", parseFloat(form.price));
+    formData.append("description", form.description);
+    if (imageFile) formData.append("image", imageFile);
+
     axios
-      .post("https://swiss-server-yvo6.onrender.com/api/items", {
-        ...form,
-        price: parseFloat(form.price),
-      })
+      .post("https://swiss-server-yvo6.onrender.com/api/items", formData)
       .then((res) => {
         onItemAdded(res.data);
         setSuccess(`"${res.data.title}" was added successfully!`);
         setForm({ title: "", category: "", price: "", description: "" });
+        setImageFile(null);
+        setImagePreview("");
         setErrors({});
       })
       .catch((err) => {
-        setServerError(
-          err.response?.data?.error || "Something went wrong. Please try again."
-        );
+        setServerError(err.response?.data?.error || "Something went wrong.");
       });
   };
 
   return (
     <div className="add-form-wrap">
       <h3 className="add-form-title">Add a Swiss Item</h3>
-
       <form className="add-form" onSubmit={handleSubmit}>
+
         <div className="add-form-field">
           <label>Title</label>
-          <input
-            type="text"
-            name="title"
-            placeholder="e.g. Swiss Army Knife"
-            value={form.title}
-            onChange={handleChange}
-          />
+          <input type="text" name="title" placeholder="e.g. Swiss Army Knife"
+            value={form.title} onChange={handleChange} />
           {errors.title && <p className="add-form-error">{errors.title}</p>}
         </div>
 
@@ -82,41 +88,36 @@ const AddItemForm = ({ onItemAdded }) => {
           <label>Category</label>
           <select name="category" value={form.category} onChange={handleChange}>
             <option value="">Select a category</option>
-            {categories.map((cat) => (
-              <option key={cat} value={cat}>{cat}</option>
-            ))}
+            {categories.map((cat) => <option key={cat} value={cat}>{cat}</option>)}
           </select>
           {errors.category && <p className="add-form-error">{errors.category}</p>}
         </div>
 
         <div className="add-form-field">
           <label>Price ($)</label>
-          <input
-            type="number"
-            name="price"
-            placeholder="e.g. 12.99"
-            value={form.price}
-            onChange={handleChange}
-            min="0.01"
-            step="0.01"
-          />
+          <input type="number" name="price" placeholder="e.g. 12.99"
+            value={form.price} onChange={handleChange} min="0.01" step="0.01" />
           {errors.price && <p className="add-form-error">{errors.price}</p>}
         </div>
 
         <div className="add-form-field">
           <label>Description</label>
-          <textarea
-            name="description"
-            placeholder="Describe the item..."
-            value={form.description}
-            onChange={handleChange}
-            rows="3"
-          />
+          <textarea name="description" placeholder="Describe the item..."
+            value={form.description} onChange={handleChange} rows="3" />
           {errors.description && <p className="add-form-error">{errors.description}</p>}
         </div>
 
-        <button type="submit" className="add-form-btn">Add Item</button>
+        {/* IMAGE FIELD */}
+        <div className="add-form-field">
+          <label>Picture</label>
+          <input type="file" accept="image/*" onChange={handleImageChange} />
+          {imagePreview && (
+            <img src={imagePreview} alt="Preview"
+              style={{ width: "100%", marginTop: "8px", borderRadius: "8px" }} />
+          )}
+        </div>
 
+        <button type="submit" className="add-form-btn">Add Item</button>
         {success && <p className="add-form-success">{success}</p>}
         {serverError && <p className="add-form-error">{serverError}</p>}
       </form>
